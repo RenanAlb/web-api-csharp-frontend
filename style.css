@@ -1,0 +1,336 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+:root {
+  --preto-fundo: rgb(15, 15, 15);
+  --preto-fundo2: rgb(10, 10, 10);
+  --cinza-claro-texto: rgb(105, 105, 105);
+  --cinza-claro-borda: rgb(43, 43, 43);
+  --verde: rgb(49, 155, 49);
+  --laranja: rgb(228, 133, 45);
+  --azul: rgb(45, 161, 228);
+  --vermelho: rgb(228, 51, 45);
+}
+
+body {
+  background-color: var(--preto-fundo);
+  width: 100%;
+  min-height: 100dvh;
+  padding: 10px;
+}
+
+header {
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  text-align: center;
+  animation: animationElements 0.35s ease-in-out;
+}
+
+main {
+  width: 100%;
+  max-width: 800px;
+  margin: 10px auto 0 auto;
+}
+
+#titulo-projeto {
+  color: var(--cinza-claro-texto);
+}
+
+#botoes-acao {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  animation: animationElements 0.35s ease-in-out;
+}
+
+#botoes-acao button {
+  width: 25%;
+  height: 40px;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 1em;
+  transition: 0.35s;
+}
+#botoes-acao button:hover {
+  cursor: pointer;
+}
+
+#get {
+  background-color: var(--verde);
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border: none;
+}
+#get:hover {
+  background-color: rgb(1, 128, 1);
+  transition: 0.2s;
+}
+
+#post {
+  background-color: var(--laranja);
+  border: none;
+  border-left: 1px solid var(--cinza-claro-borda);
+  border-right: 1px solid var(--cinza-claro-borda);
+}
+#post:hover {
+  background-color: rgb(214, 104, 0);
+  transition: 0.2s;
+}
+
+#put {
+  background-color: var(--azul);
+  border: none;
+  border-right: 1px solid var(--cinza-claro-borda);
+}
+#put:hover {
+  background-color: rgb(8, 112, 248);
+  transition: 0.2s;
+}
+
+#delete {
+  background-color: var(--vermelho);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border: none;
+}
+#delete:hover {
+  background-color: rgb(206, 24, 18);
+  transition: 0.2s;
+}
+
+#static {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#global-table {
+  width: 100%;
+  margin-top: 10px;
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid var(--cinza-claro-borda);
+  animation: animationElements 0.2s ease-in-out;
+}
+#table {
+  background-color: var(--preto-fundo);
+  width: 100%;
+  border-collapse: collapse;
+}
+
+@keyframes animationElements {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+thead {
+  background-color: var(--cinza-claro-borda);
+  border-radius: 20px;
+}
+
+tbody tr:hover {
+  background-color: var(--preto-fundo2);
+}
+
+th,
+td {
+  border: 1px solid var(--cinza-claro-borda);
+  font-weight: normal;
+  color: rgb(212, 212, 212);
+  padding: 10px;
+  font-size: 0.94em;
+}
+
+#global-loading {
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  display: none;
+}
+
+#loading {
+  width: 100%;
+  height: 300px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+small {
+  color: var(--cinza-claro-texto);
+}
+
+.fundo-preto {
+  background-color: var(--preto-fundo);
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+#form-post {
+  width: calc(100% - 1px);
+  padding: 1px;
+  background-color: var(--laranja);
+  margin-left: 1px;
+  display: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  animation: animationFormPost 0.3s ease-in-out;
+}
+
+@keyframes animationFormPost {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#form-put {
+  width: calc(100% - 1px);
+  padding: 1px;
+  background-color: var(--azul);
+  margin-left: 1px;
+  display: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  animation: animationFormPut 0.3s ease-in-out;
+}
+
+@keyframes animationFormPut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#form-delete {
+  width: calc(100% - 1px);
+  padding: 1px;
+  background-color: var(--vermelho);
+  margin-left: 1px;
+  display: none;
+  border-radius: 10px;
+  margin-top: 10px;
+  animation: animationFormDelete 0.3s ease-in-out;
+}
+
+@keyframes animationFormDelete {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+label {
+  margin-bottom: 10px;
+  color: rgb(173, 173, 173);
+  font-size: 0.8em;
+}
+
+input {
+  background-color: transparent;
+  border: 1px solid var(--cinza-claro-borda);
+  padding: 10px;
+  color: white;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+#button-post {
+  background-color: var(--laranja);
+  padding: 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+#button-post:hover {
+  cursor: pointer;
+  background-color: rgb(214, 104, 0);
+}
+
+#button-put {
+  background-color: var(--azul);
+  padding: 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+#button-put:hover {
+  cursor: pointer;
+  background-color: rgb(8, 112, 248);
+}
+
+#button-delete {
+  background-color: var(--vermelho);
+  padding: 10px;
+  border: none;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+#button-delete:hover {
+  cursor: pointer;
+  background-color: rgb(206, 24, 18);
+}
+
+#copy {
+  zoom: 70%;
+  margin-left: 10px;
+  right: 15px;
+  top: 17px;
+  position: absolute;
+  padding: 2px;
+}
+
+#copy:hover {
+  cursor: pointer;
+}
+
+#id-usuario {
+  position: relative;
+  max-width: 100px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mensagem-copiado {
+  padding: 5px;
+  background-color: var(--preto-fundo2);
+  color: white;
+  position: absolute;
+  right: 40px;
+  top: 8px;
+  font-size: 0.8em;
+  border-radius: 5px;
+  display: none;
+}
+
+.id-p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 87%;
+}

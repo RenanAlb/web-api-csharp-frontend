@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web API</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="assets/logo.png" type="image/png" />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/lineSpinner.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=content_copy"
+    />
+  </head>
+  <body>
+    <header>
+      <span id="titulo-projeto">Web API C# - Por Renan Albuquerque</span>
+    </header>
+    <main>
+      <div id="botoes-acao">
+        <button id="get">GET</button>
+        <button id="post">POST</button>
+        <button id="put">PUT</button>
+        <button id="delete">DELETE</button>
+      </div>
+
+      <form id="form-post">
+        <div class="fundo-preto">
+          <label for="post-input">Nome</label>
+          <input
+            type="text"
+            id="post-input"
+            autocomplete="off"
+            placeholder="Insira um nome"
+            required
+          />
+          <button id="button-post" type="submit">Adicionar usuário</button>
+        </div>
+      </form>
+
+      <form id="form-put">
+        <div class="fundo-preto">
+          <label for="put-input-id">ID do usuário</label>
+          <input
+            type="text"
+            id="put-input-id"
+            autocomplete="off"
+            placeholder="Insira o ID do usuário"
+            required
+          />
+          <label for="put-input-nome">Novo nome</label>
+          <input
+            type="text"
+            id="put-input-nome"
+            autocomplete="off"
+            placeholder="Insira o novo nome"
+            required
+          />
+          <button id="button-put" type="submit">Atualizar usuário</button>
+        </div>
+      </form>
+
+      <form id="form-delete">
+        <div class="fundo-preto">
+          <label for="delete-input-id">ID do usuário</label>
+          <input
+            type="text"
+            id="delete-input-id"
+            autocomplete="off"
+            placeholder="Insira o ID do usuário"
+            required
+          />
+          <button id="button-delete" type="submit">Deletar usuário</button>
+        </div>
+      </form>
+
+      <div id="static">
+        <div id="global-loading">
+          <div id="loading">
+            <l-line-spinner
+              size="30"
+              stroke="3"
+              speed="1"
+              color="rgb(105, 105, 105)"
+            ></l-line-spinner>
+            <small>Carregando...</small>
+          </div>
+        </div>
+        <div id="global-table">
+          <table id="table">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="requisicoes.js"></script>
+  </body>
+</html>
