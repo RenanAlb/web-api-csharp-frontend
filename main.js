@@ -231,7 +231,7 @@ const clicarCopiarID = () => {
         }
       });
     });
-  }, 200);
+  }, 700);
 };
 
 // Funções de botão (GET, POST, PUT, DELETE)
