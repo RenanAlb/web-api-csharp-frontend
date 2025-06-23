@@ -185,8 +185,8 @@ const abrirFormPut = () => fecharOuAbrirFormPut();
 const deletarUsuarioDELETE = async (e) => {
   e.preventDefault();
 
-  fecharOuAbrirLoadingPage();
   const idUsuarioDelete = document.getElementById("delete-input-id");
+  fecharOuAbrirLoadingPage();
   console.log(idUsuarioDelete);
 
   if (idUsuarioDelete) {
