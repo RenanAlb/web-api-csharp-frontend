@@ -160,13 +160,13 @@ const atualizarUsuarioPUT = async (e) => {
 
   const idUsuarioPut = document.getElementById("put-input-id");
   const novoNomeUsuarioPut = document.getElementById("put-input-nome");
-  fecharOuAbrirLoadingPage();
 
   if (idUsuarioPut && novoNomeUsuarioPut) {
     const respostaPUT = await putUsuarios(
       idUsuarioPut.value.trim(),
       novoNomeUsuarioPut.value.trim()
     );
+    fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
       idUsuarioPut.value = "";
