@@ -124,13 +124,13 @@ const iniciarBuscaUsuarios = async () => {
 
   fecharOuAbrirLoadingPage();
   fecharOuAbrirTableUsuarios();
-  clicarCopiarID();
 
   const respostaGetUsuarios = await getUsuarios();
 
   if (respostaGetUsuarios) {
     fecharOuAbrirLoadingPage();
     fecharOuAbrirTableUsuarios();
+    clicarCopiarID();
   }
 
   tbodyHTML.innerHTML = "";
@@ -186,11 +186,11 @@ const deletarUsuarioDELETE = async (e) => {
   e.preventDefault();
 
   const idUsuarioDelete = document.getElementById("delete-input-id");
-  fecharOuAbrirLoadingPage();
   console.log(idUsuarioDelete);
 
   if (idUsuarioDelete) {
     const respostaDeleteUsuario = await deleteUsuarios(idUsuarioDelete.value);
+    fecharOuAbrirLoadingPage();
 
     if (respostaDeleteUsuario) {
       idUsuarioDelete.value = "";
@@ -231,7 +231,7 @@ const clicarCopiarID = () => {
         }
       });
     });
-  }, 700);
+  }, 200);
 };
 
 // Funções de botão (GET, POST, PUT, DELETE)
