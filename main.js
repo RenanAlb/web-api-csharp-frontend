@@ -129,7 +129,7 @@ const iniciarBuscaUsuarios = async () => {
   const respostaGetUsuarios = await getUsuarios();
 
   if (respostaGetUsuarios) {
-    lengthUsuarios = renderizarUsuariosHTML.length;
+    lengthUsuarios = respostaGetUsuarios.length;
     fecharOuAbrirLoadingPage();
     fecharOuAbrirTableUsuarios();
     clicarCopiarID();
@@ -248,8 +248,6 @@ setInterval(() => {
     const respostaGET = await getUsuarios();
 
     if (respostaGET && lengthUsuarios != respostaGET.length) {
-      console.log(lengthUsuarios);
-      console.log(respostaGET.length);
       lengthUsuarios = respostaGET.length;
       iniciarBuscaUsuarios();
     }
