@@ -252,6 +252,6 @@ setInterval(() => {
       iniciarBuscaUsuarios();
     }
   })();
-}, 5000);
+}, 2000);
 
 iniciarBuscaUsuarios();
