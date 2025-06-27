@@ -171,6 +171,7 @@ const atualizarUsuarioPUT = async (e) => {
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
+      lengthUsuarios = 0;
       idUsuarioPut.value = "";
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
@@ -252,6 +253,6 @@ setInterval(() => {
       iniciarBuscaUsuarios();
     }
   })();
-}, 3500);
+}, 1500);
 
 iniciarBuscaUsuarios();
