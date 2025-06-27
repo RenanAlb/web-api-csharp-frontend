@@ -248,6 +248,7 @@ setInterval(() => {
   (async () => {
     const respostaGET = await getUsuarios();
 
+    console.log(lengthUsuarios);
     if (respostaGET && lengthUsuarios != respostaGET.length) {
       lengthUsuarios = respostaGET.length;
       iniciarBuscaUsuarios();
