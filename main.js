@@ -16,6 +16,8 @@ const formPostHTML = document.getElementById("form-post");
 const formPutHTML = document.getElementById("form-put");
 const formDeleteHTML = document.getElementById("form-delete");
 
+let lengthUsuarios = 0;
+
 const fecharOuAbrirTableUsuarios = () => {
   const displayAtualTableUsuarios =
     window.getComputedStyle(globalTableHTML).display;
@@ -127,6 +129,7 @@ const iniciarBuscaUsuarios = async () => {
   const respostaGetUsuarios = await getUsuarios();
 
   if (respostaGetUsuarios) {
+    lengthUsuarios = renderizarUsuariosHTML.length;
     fecharOuAbrirLoadingPage();
     fecharOuAbrirTableUsuarios();
     clicarCopiarID();
@@ -241,5 +244,13 @@ botaoDELETE.addEventListener("click", abrirFormDelete);
 
 // Iniciar busca de usuários
 setInterval(() => {
-  iniciarBuscaUsuarios();
+  (async () => {
+    const respostaGET = await getUsuarios();
+
+    if (respostaGET && lengthUsuarios != respostaGET.length) {
+      iniciarBuscaUsuarios();
+    }
+  })();
 }, 5000);
+
+iniciarBuscaUsuarios();
