@@ -15,7 +15,6 @@ const tbodyHTML = document.getElementById("tbody");
 const formPostHTML = document.getElementById("form-post");
 const formPutHTML = document.getElementById("form-put");
 const formDeleteHTML = document.getElementById("form-delete");
-const idUsuarioTdHTML = document.getElementById("id-usuario");
 
 const fecharOuAbrirTableUsuarios = () => {
   const displayAtualTableUsuarios =
@@ -241,4 +240,6 @@ botaoPUT.addEventListener("click", abrirFormPut);
 botaoDELETE.addEventListener("click", abrirFormDelete);
 
 // Iniciar busca de usuários
-iniciarBuscaUsuarios();
+setInterval(() => {
+  iniciarBuscaUsuarios();
+}, 5000);
