@@ -171,12 +171,12 @@ const atualizarUsuarioPUT = async (e) => {
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
-      lengthUsuarios = 0;
       idUsuarioPut.value = "";
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
       fecharOuAbrirLoadingPage();
       iniciarBuscaUsuarios();
+      lengthUsuarios = 0;
     }
   }
 };
@@ -194,7 +194,6 @@ const deletarUsuarioDELETE = async (e) => {
   if (idUsuarioDelete) {
     const respostaDeleteUsuario = await deleteUsuarios(idUsuarioDelete.value);
     fecharOuAbrirLoadingPage();
-
     if (respostaDeleteUsuario) {
       idUsuarioDelete.value = "";
       fecharOuAbrirLoadingPage();
