@@ -17,6 +17,7 @@ const formPutHTML = document.getElementById("form-put");
 const formDeleteHTML = document.getElementById("form-delete");
 
 let lengthUsuarios = 0;
+let usuarioAtualizadoPUT = true;
 
 const fecharOuAbrirTableUsuarios = () => {
   const displayAtualTableUsuarios =
@@ -118,7 +119,7 @@ const renderizarUsuariosHTML = (usuariosGET) => {
   }
 };
 
-const iniciarBuscaUsuarios = async () => {
+const iniciarBuscaUsuarios = async (usuarioAtualizado) => {
   formDeleteHTML.style.display = "none";
   formPostHTML.style.display = "none";
   formPutHTML.style.display = "none";
@@ -129,7 +130,11 @@ const iniciarBuscaUsuarios = async () => {
   const respostaGetUsuarios = await getUsuarios();
 
   if (respostaGetUsuarios) {
-    lengthUsuarios = respostaGetUsuarios.length;
+    if (usuarioAtualizado) {
+      lengthUsuarios = 0;
+    } else {
+      lengthUsuarios = respostaGetUsuarios.length;
+    }
     fecharOuAbrirLoadingPage();
     fecharOuAbrirTableUsuarios();
     clicarCopiarID();
@@ -168,7 +173,6 @@ const atualizarUsuarioPUT = async (e) => {
       idUsuarioPut.value.trim(),
       novoNomeUsuarioPut.value.trim()
     );
-    lengthUsuarios = 0;
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
@@ -176,6 +180,7 @@ const atualizarUsuarioPUT = async (e) => {
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
       fecharOuAbrirLoadingPage();
+      iniciarBuscaUsuarios(usuarioAtualizadoPUT);
     }
   }
 };
