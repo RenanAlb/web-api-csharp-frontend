@@ -17,7 +17,7 @@ const formPutHTML = document.getElementById("form-put");
 const formDeleteHTML = document.getElementById("form-delete");
 
 let lengthUsuarios = 0;
-let usuarioAtualizadoPUT = true;
+let usuarioAtualizadoPUT = false;
 
 const fecharOuAbrirTableUsuarios = () => {
   const displayAtualTableUsuarios =
@@ -119,7 +119,7 @@ const renderizarUsuariosHTML = (usuariosGET) => {
   }
 };
 
-const iniciarBuscaUsuarios = async (usuarioAtualizado) => {
+const iniciarBuscaUsuarios = async () => {
   formDeleteHTML.style.display = "none";
   formPostHTML.style.display = "none";
   formPutHTML.style.display = "none";
@@ -130,11 +130,7 @@ const iniciarBuscaUsuarios = async (usuarioAtualizado) => {
   const respostaGetUsuarios = await getUsuarios();
 
   if (respostaGetUsuarios) {
-    if (usuarioAtualizado) {
-      lengthUsuarios = 0;
-    } else {
-      lengthUsuarios = respostaGetUsuarios.length;
-    }
+    lengthUsuarios = respostaGetUsuarios.length;
     fecharOuAbrirLoadingPage();
     fecharOuAbrirTableUsuarios();
     clicarCopiarID();
@@ -176,11 +172,12 @@ const atualizarUsuarioPUT = async (e) => {
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
+      usuarioAtualizadoPUT = true;
       idUsuarioPut.value = "";
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
       fecharOuAbrirLoadingPage();
-      iniciarBuscaUsuarios(usuarioAtualizadoPUT);
+      iniciarBuscaUsuarios();
     }
   }
 };
@@ -252,8 +249,12 @@ setInterval(() => {
     const respostaGET = await getUsuarios();
 
     console.log(lengthUsuarios);
-    if (respostaGET && lengthUsuarios != respostaGET.length) {
+    if (
+      (respostaGET && lengthUsuarios != respostaGET.length) ||
+      usuarioAtualizadoPUT
+    ) {
       lengthUsuarios = respostaGET.length;
+      usuarioAtualizadoPUT = false;
       iniciarBuscaUsuarios();
     }
   })();
