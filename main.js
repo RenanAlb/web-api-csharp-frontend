@@ -168,6 +168,7 @@ const atualizarUsuarioPUT = async (e) => {
       idUsuarioPut.value.trim(),
       novoNomeUsuarioPut.value.trim()
     );
+    lengthUsuarios = 0;
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
@@ -175,7 +176,6 @@ const atualizarUsuarioPUT = async (e) => {
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
       fecharOuAbrirLoadingPage();
-      lengthUsuarios = 0;
     }
   }
 };
