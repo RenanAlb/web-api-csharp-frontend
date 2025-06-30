@@ -17,7 +17,6 @@ const formPutHTML = document.getElementById("form-put");
 const formDeleteHTML = document.getElementById("form-delete");
 
 let lengthUsuarios = 0;
-let usuarioAtualizadoPUT = false;
 
 const fecharOuAbrirTableUsuarios = () => {
   const displayAtualTableUsuarios =
@@ -172,7 +171,6 @@ const atualizarUsuarioPUT = async (e) => {
     fecharOuAbrirLoadingPage();
 
     if (respostaPUT) {
-      usuarioAtualizadoPUT = true;
       idUsuarioPut.value = "";
       novoNomeUsuarioPut.value = "";
       fecharOuAbrirFormPut();
@@ -249,12 +247,8 @@ setInterval(() => {
     const respostaGET = await getUsuarios();
 
     console.log(lengthUsuarios);
-    if (
-      (respostaGET && lengthUsuarios != respostaGET.length) ||
-      usuarioAtualizadoPUT
-    ) {
+    if (respostaGET && lengthUsuarios != respostaGET.length) {
       lengthUsuarios = respostaGET.length;
-      usuarioAtualizadoPUT = false;
       iniciarBuscaUsuarios();
     }
   })();
