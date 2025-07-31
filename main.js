@@ -242,16 +242,16 @@ botaoPUT.addEventListener("click", abrirFormPut);
 botaoDELETE.addEventListener("click", abrirFormDelete);
 
 // Iniciar busca de usuários
-setInterval(() => {
-  (async () => {
-    const respostaGET = await getUsuarios();
+// setInterval(() => {
+//   (async () => {
+//     const respostaGET = await getUsuarios();
 
-    console.log(lengthUsuarios);
-    if (respostaGET && lengthUsuarios != respostaGET.length) {
-      lengthUsuarios = respostaGET.length;
-      iniciarBuscaUsuarios();
-    }
-  })();
-}, 1500);
+//     console.log(lengthUsuarios);
+//     if (respostaGET && lengthUsuarios != respostaGET.length) {
+//       lengthUsuarios = respostaGET.length;
+//       iniciarBuscaUsuarios();
+//     }
+//   })();
+// }, 1500);
 
 iniciarBuscaUsuarios();
